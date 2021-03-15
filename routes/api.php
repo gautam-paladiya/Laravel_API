@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/greeting', function (Request $request) {
+Route::get('greeting', function (Request $request) {
     return 'Hello World';
 });
 
@@ -28,6 +28,8 @@ Route::get('wallpapers/{term}', 'FilesController@findWallpapers');
 
 Route::get('ringtones', 'FilesController@getRingtones');
 Route::get('ringtones/{term}', 'FilesController@findRingtones');
+
+Route::post('updateDownload/{id}', 'FilesController@updateDownloads');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
