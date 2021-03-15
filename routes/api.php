@@ -24,12 +24,14 @@ Route::get('post/{id}', 'FilesController@show');
 Route::get('post', 'FilesController@index');
 
 Route::get('wallpapers', 'FilesController@getWallpapers');
-Route::get('wallpapers/{term}', 'FilesController@findWallpapers');
+Route::get('featureWallpapers/{count}', 'FilesController@featureWallpapers');
 
 Route::get('ringtones', 'FilesController@getRingtones');
-Route::get('ringtones/{term}', 'FilesController@findRingtones');
+Route::get('featureRingtones/{count}', 'FilesController@featureRingtones');
 
 Route::post('updateDownload/{id}', 'FilesController@updateDownloads');
+
+Route::post('uploadFiles', 'FilesController@uploadFiles');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
