@@ -89,12 +89,12 @@ class FilesController extends Controller
 
     public function arrayPaginator($array, $request)
     {
-        $page = $request->query('page', 1);
-        $perPage = 10;
+        $page = $request->query('page');
+        $perPage = Config::get('value.ENV_DOWNLOAD_INC');
         $offset = ($page * $perPage) - $perPage;
 
         return new LengthAwarePaginator(
-            array_slice($array, $offset, $perPage, true),
+            array_slice($array, $offset, $perPage, false),
             count($array),
             $perPage,
             $page,
