@@ -31,6 +31,8 @@ Route::get('featureRingtones/{count}', 'FilesController@featureRingtones');
 
 Route::post('updateDownload/{id}', 'FilesController@updateDownloads');
 
+Route::get('getCategory', 'FilesController@getCategory');
+
 Route::post('uploadFiles', 'FilesController@uploadFiles');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
