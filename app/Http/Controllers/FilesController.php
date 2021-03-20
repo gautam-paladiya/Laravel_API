@@ -44,6 +44,12 @@ class FilesController extends Controller
         return response()->json($posts);
     }
 
+    public function getAllWallpapers()
+    {
+        $posts = DB::select("SELECT * FROM files where types='image'");
+        return response()->json($posts);
+    }
+
     public function getRingtones(Request $request)
     {
         if ($request->has('term')) {
@@ -59,6 +65,12 @@ class FilesController extends Controller
     public function featureRingtones(Request $request, $count)
     {
         $posts = DB::select("SELECT * FROM files where types='music' ORDER BY RAND() LIMIT ?", [$count]);
+        return response()->json($posts);
+    }
+
+    public function getAllRingtones()
+    {
+        $posts = DB::select("SELECT * FROM files where types='music'");
         return response()->json($posts);
     }
 

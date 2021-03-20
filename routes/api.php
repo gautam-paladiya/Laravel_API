@@ -23,9 +23,11 @@ Route::get('post/{id}', 'FilesController@show');
 
 Route::get('post', 'FilesController@index');
 
+Route::get('getAllWallpapers', 'FilesController@getAllWallpapers');
 Route::get('wallpapers', 'FilesController@getWallpapers');
 Route::get('featureWallpapers/{count}', 'FilesController@featureWallpapers');
 
+Route::get('getAllRingtones', 'FilesController@getAllRingtones');
 Route::get('ringtones', 'FilesController@getRingtones');
 Route::get('featureRingtones/{count}', 'FilesController@featureRingtones');
 
